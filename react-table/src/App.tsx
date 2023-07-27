@@ -1,7 +1,12 @@
 import './App.css';
+import ReactTable from './Components/ReactTable';
 
 function App() {
-  return <div>Placeholder</div>;
+  return (
+    <div>
+      <ReactTable />
+    </div>
+  );
 }
 
 export default App;
