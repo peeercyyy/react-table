@@ -25,11 +25,14 @@ const ReactTable: React.FC = () => {
       dataIndex: 'date',
       key: 'date',
       render: (date: string) => new Date(date).toLocaleDateString('ru-RU'),
+      sorter: (a: TableData, b: TableData) =>
+        Date.parse(a.date) - Date.parse(b.date),
     },
     {
       title: 'Числовое значение',
       dataIndex: 'number',
       key: 'number',
+      sorter: (a: TableData, b: TableData) => a.number - b.number,
     },
     {
       title: 'Действия',
