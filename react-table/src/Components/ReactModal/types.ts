@@ -1,5 +1,10 @@
 export type ChildrenProps = {
-  children: JSX.Element;
   isOpen: boolean;
-  isClose: () => void;
+  onCancel: () => void;
+};
+
+export type FormValues = {
+  name: string;
+  date: Date;
+  number: number;
 };

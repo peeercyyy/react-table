@@ -1,6 +1,6 @@
 export type DataType = {
-  key: string;
+  id: string;
   name: string;
-  date: number;
+  date: string;
   number: number;
 };

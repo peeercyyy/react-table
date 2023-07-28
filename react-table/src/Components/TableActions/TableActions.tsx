@@ -1,6 +1,5 @@
 import { Button } from 'antd';
 import ReactModal from '../ReactModal';
-import ModalForm from '../ModalForm';
 import { useState } from 'react';
 
 const TableActions = () => {
@@ -21,9 +20,7 @@ const TableActions = () => {
       </Button>
       <ReactModal
         isOpen={isOpenModal}
-        isClose={handleCloseModal}>
-        <ModalForm />
-      </ReactModal>
+        onCancel={handleCloseModal}></ReactModal>
     </>
   );
 };

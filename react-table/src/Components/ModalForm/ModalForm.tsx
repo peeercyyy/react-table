@@ -1,10 +1,12 @@
-import React from 'react';
-import { Button, DatePicker, Form, Input, InputNumber } from 'antd';
+import { DatePicker, Form, Input, InputNumber } from 'antd';
+import { ModalFormProps } from './types';
 
-const ModalForm: React.FC = () => {
+const ModalForm = ({ form }: ModalFormProps) => {
+  const dateFormat = 'DD.MM.YYYY';
   return (
     <Form
       name='dataForm'
+      form={form}
       autoComplete='off'>
       <Form.Item
         label='Имя'
@@ -16,20 +18,13 @@ const ModalForm: React.FC = () => {
         label='Дата'
         name='date'
         rules={[{ required: true, message: 'Выберите дату' }]}>
-        <DatePicker />
+        <DatePicker format={dateFormat} />
       </Form.Item>
       <Form.Item
         label='Числовое значение'
         name='number'
         rules={[{ required: true, message: 'Введите число' }]}>
         <InputNumber />
-      </Form.Item>
-      <Form.Item>
-        <Button
-          type='primary'
-          htmlType='submit'>
-          Добавить
-        </Button>
       </Form.Item>
     </Form>
   );
