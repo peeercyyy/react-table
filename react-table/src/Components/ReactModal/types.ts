@@ -1,6 +1,5 @@
 export type ChildrenProps = {
   isOpen: boolean;
-  onCancel: () => void;
 };
 
 export type FormValues = {

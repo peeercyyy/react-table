@@ -2,15 +2,14 @@ import React from 'react';
 import { Button, Space, Table } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteData, tableDataSelectors } from '../../slices/tableDataSlices';
-import { openModal } from '../../slices/modalSlices';
+import { openToEditDataModal } from '../../slices/modalSlices';
 import { TableData } from '../../slices/types';
 
 const ReactTable: React.FC = () => {
   const tableData = useSelector(tableDataSelectors.selectAll);
   const dispatch = useDispatch();
   const editData = (id: string) => () => {
-    dispatch(openModal());
-    console.log(id);
+    dispatch(openToEditDataModal({ id }));
   };
   const deleteTableData = (id: string) => () => {
     dispatch(deleteData(id));
@@ -36,7 +35,7 @@ const ReactTable: React.FC = () => {
       title: 'Действия',
       dataIndex: 'actions',
       key: 'actions',
-      render: (_: any, record: TableData) => (
+      render: (_: string, record: TableData) => (
         <Space size='middle'>
           <Button
             size='small'

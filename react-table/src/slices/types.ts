@@ -7,5 +7,5 @@ export type TableData = {
 
 export type ModalState = {
   isOpen: boolean;
-  tableDataId?: string;
+  tableDataId: string;
 };

@@ -1,8 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ModalState } from './types';
 
 const initialState: ModalState = {
   isOpen: false,
+  tableDataId: '0',
 };
 
 const modalSlice = createSlice({
@@ -12,12 +13,17 @@ const modalSlice = createSlice({
     openModal(state: ModalState) {
       state.isOpen = true;
     },
-    openToEditDataModal(state: ModalState) {
+    openToEditDataModal(
+      state: ModalState,
+      action: PayloadAction<{ id: string }>
+    ) {
+      const { id } = action.payload;
       state.isOpen = true;
+      state.tableDataId = id;
     },
     closeModal(state: ModalState) {
       state.isOpen = false;
-      state.tableDataId = '';
+      state.tableDataId = '0';
     },
   },
 });
