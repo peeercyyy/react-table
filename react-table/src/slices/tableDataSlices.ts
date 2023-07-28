@@ -1,7 +1,8 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { State } from '../store/store';
+import { TableData } from './types';
 
-const tableDataAdapter = createEntityAdapter();
+const tableDataAdapter = createEntityAdapter<TableData>();
 const initialState = tableDataAdapter.getInitialState();
 
 const tableDataSlice = createSlice({
@@ -15,7 +16,7 @@ const tableDataSlice = createSlice({
 });
 
 export const { addData, deleteData, updateData } = tableDataSlice.actions;
-export const selectors = tableDataAdapter.getSelectors(
+export const tableDataSelectors = tableDataAdapter.getSelectors(
   (state: State) => state.tableData
 );
 export default tableDataSlice.reducer;

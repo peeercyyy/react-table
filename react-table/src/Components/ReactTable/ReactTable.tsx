@@ -1,10 +1,11 @@
 import React from 'react';
 import { Space, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import { DataType } from './types';
+import { useSelector } from 'react-redux';
+import { tableDataSelectors } from '../../slices/tableDataSlices';
 
 const ReactTable: React.FC = () => {
-  const columns: ColumnsType<DataType> = [
+  const tableData = useSelector(tableDataSelectors.selectAll);
+  const columns = [
     {
       title: 'Имя',
       dataIndex: 'name',
@@ -14,6 +15,7 @@ const ReactTable: React.FC = () => {
       title: 'Дата',
       dataIndex: 'date',
       key: 'date',
+      render: (date: string) => new Date(date).toLocaleDateString('ru-RU'),
     },
     {
       title: 'Числовое значение',
@@ -32,7 +34,12 @@ const ReactTable: React.FC = () => {
       ),
     },
   ];
-  return <Table columns={columns}></Table>;
+  return (
+    <Table
+      columns={columns}
+      dataSource={tableData}
+      rowKey={'id'}></Table>
+  );
 };
 
 export default ReactTable;
