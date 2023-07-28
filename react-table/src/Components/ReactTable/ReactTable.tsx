@@ -1,10 +1,20 @@
 import React from 'react';
-import { Space, Table } from 'antd';
-import { useSelector } from 'react-redux';
-import { tableDataSelectors } from '../../slices/tableDataSlices';
+import { Button, Space, Table } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteData, tableDataSelectors } from '../../slices/tableDataSlices';
+import { openModal } from '../../slices/modalSlices';
+import { TableData } from '../../slices/types';
 
 const ReactTable: React.FC = () => {
   const tableData = useSelector(tableDataSelectors.selectAll);
+  const dispatch = useDispatch();
+  const editData = (id: string) => () => {
+    dispatch(openModal());
+    console.log(id);
+  };
+  const deleteTableData = (id: string) => () => {
+    dispatch(deleteData(id));
+  };
   const columns = [
     {
       title: 'Имя',
@@ -26,10 +36,18 @@ const ReactTable: React.FC = () => {
       title: 'Действия',
       dataIndex: 'actions',
       key: 'actions',
-      render: () => (
+      render: (_: any, record: TableData) => (
         <Space size='middle'>
-          <a>Редактировать</a>
-          <a>Удалить</a>
+          <Button
+            size='small'
+            onClick={editData(record.id)}>
+            Редактировать
+          </Button>
+          <Button
+            size='small'
+            onClick={deleteTableData(record.id)}>
+            Удалить
+          </Button>
         </Space>
       ),
     },
@@ -38,7 +56,8 @@ const ReactTable: React.FC = () => {
     <Table
       columns={columns}
       dataSource={tableData}
-      rowKey={'id'}></Table>
+      rowKey={'id'}
+    />
   );
 };
 

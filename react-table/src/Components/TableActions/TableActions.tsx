@@ -1,14 +1,18 @@
 import { Button } from 'antd';
 import ReactModal from '../ReactModal';
-import { useState } from 'react';
+import { useContext } from 'react';
+import ModalContext from '../../ModalContext';
+import { useDispatch } from 'react-redux';
+import { closeModal, openModal } from '../../slices/modalSlices';
 
 const TableActions = () => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const { isModalOpen } = useContext(ModalContext);
+  const dispatch = useDispatch();
   const handleOpenModal = () => {
-    setIsOpenModal(true);
+    dispatch(openModal());
   };
   const handleCloseModal = () => {
-    setIsOpenModal(false);
+    dispatch(closeModal());
   };
   return (
     <>
@@ -19,8 +23,9 @@ const TableActions = () => {
         Добавить
       </Button>
       <ReactModal
-        isOpen={isOpenModal}
-        onCancel={handleCloseModal}></ReactModal>
+        isOpen={isModalOpen}
+        onCancel={handleCloseModal}
+      />
     </>
   );
 };
