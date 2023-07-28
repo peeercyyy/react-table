@@ -4,3 +4,8 @@ export type TableData = {
   date: string;
   number: number;
 };
+
+export type ModalState = {
+  isOpen: boolean;
+  tableDataId?: string;
+};

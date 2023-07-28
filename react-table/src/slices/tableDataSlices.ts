@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { State } from '../store/store';
+import { State } from '../store/rootReducer';
 import { TableData } from './types';
 
 const tableDataAdapter = createEntityAdapter<TableData>();
