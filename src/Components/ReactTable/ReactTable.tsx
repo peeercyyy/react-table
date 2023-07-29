@@ -17,7 +17,7 @@ const ReactTable: React.FC = () => {
     dispatch(deleteData(id));
   };
 
-  const filterTable = (value, record: TableData) => {
+  const filterTable = (value: string, record: TableData) => {
     return (
       record.name.toString().toLowerCase().includes(value.toLowerCase()) ||
       record.number.toString().toLowerCase().includes(value.toLowerCase()) ||
@@ -35,7 +35,8 @@ const ReactTable: React.FC = () => {
       sorter: (a: TableData, b: TableData) =>
         a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1,
       filteredValue: [searchData],
-      onFilter: (value, record: TableData) => filterTable(value, record),
+      onFilter: (value: string | number | boolean, record: TableData) =>
+        filterTable(value.toString(), record),
     },
     {
       title: 'Дата',
