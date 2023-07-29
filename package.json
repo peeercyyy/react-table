@@ -2,7 +2,7 @@
   "name": "react-table",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://peeercyyy.github.io/react-table",
+  "homepage": "https://peeercyyy.github.io/react-table/",
   "type": "module",
   "scripts": {
     "dev": "vite",
