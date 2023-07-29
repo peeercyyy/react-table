@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteData, tableDataSelectors } from '../../slices/tableDataSlices';
 import { openToEditDataModal } from '../../slices/modalSlices';
 import { TableData } from '../../slices/types';
+import { State } from '../../store/rootReducer';
 
 const ReactTable: React.FC = () => {
   const tableData = useSelector(tableDataSelectors.selectAll);
+  const searchData = useSelector((state: State) => state.searchState.search);
   const dispatch = useDispatch();
   const editData = (id: string) => () => {
     dispatch(openToEditDataModal({ id }));
@@ -14,6 +16,17 @@ const ReactTable: React.FC = () => {
   const deleteTableData = (id: string) => () => {
     dispatch(deleteData(id));
   };
+
+  const filterTable = (value, record: TableData) => {
+    return (
+      record.name.toString().toLowerCase().includes(value.toLowerCase()) ||
+      record.number.toString().toLowerCase().includes(value.toLowerCase()) ||
+      new Date(record.date)
+        .toLocaleDateString('ru-RU')
+        .includes(value.toLowerCase())
+    );
+  };
+
   const columns = [
     {
       title: 'Имя',
@@ -21,6 +34,8 @@ const ReactTable: React.FC = () => {
       key: 'name',
       sorter: (a: TableData, b: TableData) =>
         a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1,
+      filteredValue: [searchData],
+      onFilter: (value, record: TableData) => filterTable(value, record),
     },
     {
       title: 'Дата',
