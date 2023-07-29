@@ -19,6 +19,8 @@ const ReactTable: React.FC = () => {
       title: 'Имя',
       dataIndex: 'name',
       key: 'name',
+      sorter: (a: TableData, b: TableData) =>
+        a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1,
     },
     {
       title: 'Дата',
