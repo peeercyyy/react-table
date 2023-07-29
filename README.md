@@ -1,27 +1,22 @@
-# React + TypeScript + Vite
+# Тестовое задание на позицию Frontend-разработчика в компанию **"Каспел"**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+В рамках тестового задания необходимо было разработать компонент таблицы, с несколькими столбцами: имя, дата, числовое значение, колонка с действиями (редактировать, удалить).
 
-Currently, two official plugins are available:
+Над таблицей находится кнопка "Добавить", которая вызывает модальное окно с формой.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Дополнительные требования:
 
-## Expanding the ESLint configuration
+- Использовать библиотеку AntD
+- Реализовать сортировку по колонкам
+- Реализовать поиск по ячейкам таблицы (инпут для поиска над таблицей)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Порядок для запуска приложения локально:
 
-- Configure the top-level `parserOptions` property like this:
+1. Клонировать этот репозиторий
+2. ```
+   npm run dev
+   ```
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+3. Приложение доступно по адресу [localhost:5173]()
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Готовое приложение доступно по адресу [https://peeercyyy.github.io/react-table]()
