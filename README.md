@@ -17,6 +17,6 @@
    npm run dev
    ```
 
-3. Приложение доступно по адресу [localhost:5173]()
+3. Приложение доступно по адресу [localhost:5173](localhost:5173)
 
-Готовое приложение доступно по адресу [https://peeercyyy.github.io/react-table]()
+Готовое приложение доступно по адресу [https://peeercyyy.github.io/react-table](https://peeercyyy.github.io/react-table)
