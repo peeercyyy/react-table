@@ -9,3 +9,7 @@ export type ModalState = {
   isOpen: boolean;
   tableDataId: string;
 };
+
+export type SearchState = {
+  search: string;
+};
