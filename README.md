@@ -14,9 +14,12 @@
 
 1. Клонировать этот репозиторий
 2. ```
+   nom install
+   ```
+3. ```
    npm run dev
    ```
 
-3. Приложение доступно по адресу [localhost:5173](localhost:5173)
+4. Приложение доступно по адресу [localhost:5173](localhost:5173)
 
 Готовое приложение доступно по адресу [https://peeercyyy.github.io/react-table](https://peeercyyy.github.io/react-table)
