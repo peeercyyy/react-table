@@ -14,7 +14,7 @@
 
 1. Клонировать этот репозиторий
 2. ```
-   nom install
+   npm install
    ```
 3. ```
    npm run dev
